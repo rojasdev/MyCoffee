@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textSize="24sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
 
         <ImageView
             android:id="@+id/imageCoffee"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/textCoffeeRoast"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/textCoffeeDescription"
@@ -46,6 +46,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
+
+        <!-- New Inquire Button -->
+        <Button
+            android:id="@+id/btnInquire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inquire"
+            android:layout_marginTop="20dp"
+            />
+
     </LinearLayout>
 </ScrollView>

@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -86,11 +87,41 @@ public class FragmentCoffee extends Fragment {
                                     .into(imageCoffee);
 
                             // Build and show dialog
+                            //AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                            //builder.setTitle(selectedCoffee.getName());
+                            //builder.setView(dialogView);
+                            //builder.setPositiveButton("Close", (dialog, which) -> dialog.dismiss());
+                            //builder.show();
+
+                            // Build dialog
                             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                             builder.setTitle(selectedCoffee.getName());
                             builder.setView(dialogView);
                             builder.setPositiveButton("Close", (dialog, which) -> dialog.dismiss());
-                            builder.show();
+
+
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+
+                            Button btnInquire = dialogView.findViewById(R.id.btnInquire);
+                            btnInquire.setOnClickListener(v -> {
+                                dialog.dismiss();
+
+                                // Open FragmentInquire
+                                Fragment inquireFragment = new FragmentInquire();
+
+                                // Pass coffee info if needed
+                                Bundle args = new Bundle();
+                                args.putString("coffee_name", selectedCoffee.getName());
+                                inquireFragment.setArguments(args);
+
+                                requireActivity().getSupportFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.fragment_container, inquireFragment)
+                                        .addToBackStack(null)
+                                        .commit();
+                            });
                         });
 
                     } else {
